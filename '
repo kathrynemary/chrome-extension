@@ -1,19 +1,16 @@
 var currentUrl = window.location.href;
 var onGoogle = /google/i;
 var evalGoogle = onGoogle.test(currentUrl);
-    
-var hasSearch = /search/i; 
-var evalSearch = hasSearch.test(currentUrl);
+
+
+var searchTerm = document.getElementById('lst-ib').value();
+var exclamation = searchTerm + "!";
 
 if (evalGoogle) {
-    if (evalSearch) {
-        var exclamation = "You searched!"
-    } else {
-        var exclamation = "Can't find a search. :/"
-    };
-     
-    alert(exclamation);
-};
+    //alert("You are on a Google Webpage!")
+    
+    alert(exclamation)
+}
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
