@@ -7,7 +7,9 @@ var evalSearch = hasSearch.test(currentUrl);
 
 if (evalGoogle) {
     if (evalSearch) {
-        var exclamation = "You searched!"
+        var pattern = /=(.*)(?=&oq)/i.exec(currentUrl).toString();
+
+        var exclamation = "You searched for: " + pattern.split(",")[1]
     } else {
         var exclamation = "Can't find a search. :/"
     };
